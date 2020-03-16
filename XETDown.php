@@ -18,7 +18,9 @@ class XETDown
         $this->curl_m3u8 = $curl_m3u8;
         $this->curl_ts = $curl_ts;
         $this->key_url = $key_url;
-        $this->dir = $dir;
+        $this->dir = rtrim($dir, '/');
+
+        if (!is_dir($dir)) mkdir($dir, 777, true);
     }
 
     /**
